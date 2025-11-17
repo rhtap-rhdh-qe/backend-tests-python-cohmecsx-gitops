@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: backend-tests-python-cohmecsx-gitops
+  description: This is GitOps manifest for backend-tests-python-cohmecsx   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=backend-tests-python-cohmecsx
+    backstage.io/kubernetes-id: backend-tests-python-cohmecsx 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: backend-tests-python-cohmecsx
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:backend-tests-python-cohmecsx
